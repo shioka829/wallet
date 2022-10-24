@@ -1,0 +1,7 @@
+#DB設定
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=shioka8s29y
+#キャメルケースとスネークケースを自動変換する
+mybatis.configuration.map-underscore-to-camel-case=true
