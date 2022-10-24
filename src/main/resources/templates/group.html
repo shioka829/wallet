@@ -12,6 +12,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
+<script src="./js/api.js"></script>
+
 </head>
 <body>
 
@@ -70,7 +72,7 @@
 
         // グループ情報を取得する
         $.ajax({
-                url:`http://localhost:8080/api/group?groupid=${groupId}`,
+                url: BASE_URL + `/group?groupid=${groupId}`,
                 type: "GET",
                 async: true,
                 dataType: "json",
@@ -90,7 +92,7 @@
 
         // メンバーの一覧を取得する
         $.ajax({
-            url:`http://localhost:8080/api/members?groupid=${groupId}`,
+            url: BASE_URL + `/members?groupid=${groupId}`,
             type: "GET",
             async: true,
             dataType: "json",
@@ -123,7 +125,7 @@
             var member_info = JSON.stringify(arr);
 
             $.ajax({
-                url:`http://localhost:8080/api/member`,
+                url: BASE_URL + `/member`,
                 type: "POST",
                 async: true,
                 dataType: "json",

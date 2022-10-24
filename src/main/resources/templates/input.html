@@ -17,6 +17,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
 <!-- datapicker 日本語化 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ja.min.js" integrity="sha256-IX182a23hiQE65+kYOND1ZIX2Vpl0cHb96g9nJqqqW0=" crossorigin="anonymous"></script>
+<script src="./js/api.js"></script>
 </head>
 <body class="text-center">
     <div class="mx-auto">
@@ -175,7 +176,7 @@
 
          // 家計簿の詳細を取得する
          $.ajax({
-                url:`http://localhost:8080/api/expenses?groupid=${groupId}&month=${month}`,
+                url: BASE_URL + `/expenses?groupid=${groupId}&month=${month}`,
                 type: "GET",
                 async: true,
                 dataType: "json",
@@ -206,7 +207,7 @@
 
         // 家計簿の小計・合計を取得する
         $.ajax({
-                url:`http://localhost:8080/api/expenses-total?groupid=${groupId}&month=${month}`,
+                url: BASE_URL + `/expenses-total?groupid=${groupId}&month=${month}`,
                 type: "GET",
                 async: true,
                 dataType: "json",
@@ -257,7 +258,7 @@
 
             // 家計簿の登録を行う
             $.ajax({
-                url:`http://localhost:8080/api/expense`,
+                url: BASE_URL + `/expense`,
                 type: "POST",
                 async: true,
                 dataType: "json",
@@ -288,7 +289,7 @@
             var member_info = JSON.stringify(arr);
 
             $.ajax({
-                url:`http://localhost:8080/api/category`,
+                url: BASE_URL + `/category`,
                 type: "POST",
                 async: true,
                 dataType: "json",
@@ -314,7 +315,7 @@
 
         // メンバーの一覧を取得する
         $.ajax({
-            url:`http://localhost:8080/api/members?groupid=${groupId}`,
+            url: BASE_URL + `/members?groupid=${groupId}`,
             type: "GET",
             async: true,
             dataType: "json",
@@ -336,7 +337,7 @@
 
             // 項目の一覧を取得する
             $.ajax({
-                url:`http://localhost:8080/api/categories?groupid=${groupId}`,
+                url: BASE_URL + `/categories?groupid=${groupId}`,
                 type: "GET",
                 async: true,
                 dataType: "json",
@@ -375,7 +376,7 @@
             $('#deleteReg').on('click', function() {
             // 家計簿の更新を行う(削除)
             $.ajax({
-                url:`http://localhost:8080/api/expense`,
+                url: BASE_URL + `/expense`,
                 type: "DELETE",
                 async: true,
                 dataType: "json",
