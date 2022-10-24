@@ -20,7 +20,7 @@
                     <p class="text-danger"></p>
                     <input type="id" id="inputGroupName" class="form-control" placeholder="例)チームゴリラ" required="true" autofocus="" maxlength="64">
                     <br>
-                    <button class="w-100 btn btn-lg btn-primary" id="signup" type="submit">登録</button>
+                    <button class="w-100 btn btn-lg btn-primary" id="signup" type="button">登録</button>
                     <p class="mt-5 mb-3 text-muted">© 2022</p>
                 </form>
             </main>
@@ -30,9 +30,7 @@
     <script>
 
         $('#signup').on('click', function() {
-            alert('start');
             signup();
-            alert('end');
         });
 
         function signup() {
@@ -49,12 +47,10 @@
                 cache: false,
                 data: login_info,
                 success: function (responseData) {
-                    alert('success');
                   // 成功時処理
                   window.location.href = "group?id=" +  responseData.groupId;
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    alert('error');
                   // 失敗時処理
                   var res = $.parseJSON(xhr.responseText);
                   $('.text-danger').text(res.errorMessage);
