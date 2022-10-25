@@ -225,8 +225,8 @@ public class ExpensesService {
         Expense expense = mapper.selectExpense(request.getGroupid(), request.getMonth(), request.getExpensesid());
 
         if (expense == null){
-            throw new CommonAppException(HttpStatus.BAD_REQUEST, ComErr.EXPENCE_UPDATE_ERR,
-            ComErr.EXPENCE_UPDATE_ERR_MSG);
+            throw new CommonAppException(HttpStatus.BAD_REQUEST, ComErr.EXPENCE_DELETE_ERR,
+            ComErr.EXPENCE_DELETE_ERR_MSG);
         }
 
         boolean result = mapper.deleteExpense(request.getGroupid(), request.getExpensesid(), request.getMonth());
