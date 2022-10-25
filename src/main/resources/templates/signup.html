@@ -38,7 +38,7 @@
             var arr = { groupname: name};
             var login_info = JSON.stringify(arr);
         $.ajax({
-                url:"http://localhost:8080/api/signup",
+                url: BASE_URL + "/signup",
                 type: "POST",
                 async: true,
                 dataType: "json",
